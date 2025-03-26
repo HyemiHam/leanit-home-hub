@@ -94,7 +94,10 @@ const Index: React.FC = () => {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector('button[aria-label="Contact"]')?.click();
+                const contactButton = document.querySelector('button[aria-label="Contact"]');
+                if (contactButton && 'click' in contactButton) {
+                  (contactButton as HTMLButtonElement).click();
+                }
               }}
               className="px-8 py-4 bg-white text-brand-500 rounded-lg inline-block font-medium hover:bg-opacity-90 transition-colors"
             >

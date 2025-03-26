@@ -9,13 +9,15 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <img
-              src="/src/assets/logo.svg"
+              src="/src/assets/leanit-logo.svg"
               alt="leanIT 로고"
-              className="h-10 mb-4 brightness-0 invert"
+              className="h-12 mb-4 brightness-0 invert"
             />
-            <p className="text-gray-400 mb-4 max-w-md">
-              leanIT는 고객 맞춤형 AI/IT 솔루션을 제공하는 기업으로, 
-              최신 기술과 전문성을 바탕으로 비즈니스 혁신을 돕고 있습니다.
+            <p className="mt-2 text-lg font-semibold text-brand-300">Your IT Advantage</p>
+            <p className="text-gray-400 mb-4 max-w-md mt-4">
+              "품질 우선, 낭비 제거, 지속적인 개선"이라는 도요타의 Lean Manufacturing 철학과,
+              隣 "이웃 린"의 중의적인 뜻을 가집니다. leanIT는 20년 이상의 IT경험을 바탕으로 설립된 회사로
+              뛰어난 기술력과 혁신적인 솔루션을 제공하여 고객의 비즈니스 성장을 돕고 있습니다.
             </p>
             <div className="flex space-x-4">
               <a

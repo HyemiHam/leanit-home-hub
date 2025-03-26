@@ -37,9 +37,9 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img
-            src="/src/assets/logo.svg" 
+            src="/src/assets/leanit-logo.svg" 
             alt="leanIT 로고"
-            className="h-10 md:h-12"
+            className="h-12 md:h-14"
           />
         </Link>
 

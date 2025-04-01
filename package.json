@@ -8,7 +8,10 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "concurrently --kill-others -c \"blue,green\" \"npm run server\" \"npm run client\"",
+    "server": "node server.js",
+    "client": "vite"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -43,6 +46,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
+    "concurrently": "^9.1.2",
     "cors": "^2.8.5",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.7",

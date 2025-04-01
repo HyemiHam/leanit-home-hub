@@ -1,9 +1,9 @@
-
 import React, { useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
-import cors from "cors";
+
+const SEND_MAIL_URL = import.meta.env.VITE_SEND_MAIL_URL;
 
 const ContactButton: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +32,7 @@ const ContactButton: React.FC = () => {
     console.log("Form submitted:", formData);
     
     try {
-      const response = await fetch('http://localhost:5000/api/send-email', {
+      const response = await fetch(SEND_MAIL_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

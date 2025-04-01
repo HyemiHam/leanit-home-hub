@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img
-            src="/src/assets/leanit-logo.svg" 
+            src="/src/assets/leanit-logo.gif" 
             alt="leanIT 로고"
             className="h-12 md:h-14"
           />
@@ -56,12 +56,6 @@ const Navbar: React.FC = () => {
             className="text-gray-800 hover:text-brand-500 font-medium transition-colors"
           >
             서비스
-          </Link>
-          <Link
-            to="/education"
-            className="text-gray-800 hover:text-brand-500 font-medium transition-colors"
-          >
-            교육
           </Link>
           <Link
             to="/about"

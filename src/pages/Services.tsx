@@ -10,10 +10,10 @@ const Services: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto mb-16 reveal">
             <span className="text-brand-500 font-medium">서비스</span>
             <h1 className="text-3xl md:text-5xl font-bold mt-2 mb-4">
-              <span className="text-gradient">맞춤형 솔루션</span>으로 비즈니스 혁신을 이끕니다
+              <span className="text-gradient">맞춤형 솔루션</span>으로 AI 혁신을 이끕니다
             </h1>
             <p className="text-gray-600">
-              leanIT는 고객 맞춤형 AI/IT솔루션을 통해 비즈니스의 디지털 혁신을 지원합니다.
+              leanIT는 고객 맞춤형 AI/IT솔루션을 통해 비즈니스의 AI 혁신을 지원합니다.
             </p>
           </div>
 
@@ -28,14 +28,9 @@ const Services: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold mb-3">AI 기반 솔루션</h3>
               <p className="text-gray-600 mb-4">
-                최신 인공지능 기술을 활용하여 데이터 분석, 예측 모델링, 자연어 처리 등
-                다양한 비즈니스 문제를 해결하는 맞춤형 AI 솔루션을 제공합니다.
+                최신 인공지능 기술을 활용하여 다양한 비즈니스 문제를 해결하는 맞춤형 AI 솔루션을 제공합니다.
               </p>
               <ul className="space-y-2 text-gray-600">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-brand-500 rounded-full mr-2"></span>
-                  머신러닝 모델 개발 및 배포
-                </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-brand-500 rounded-full mr-2"></span>
                   자연어 처리 솔루션
@@ -62,15 +57,14 @@ const Services: React.FC = () => {
                   <path d="M15 15h.01" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3">디지털 트랜스포메이션</h3>
+              <h3 className="text-xl font-bold mb-3">AX(AI Transformation)</h3>
               <p className="text-gray-600 mb-4">
-                기업의 디지털 전환을 위한 전략 수립부터 실행까지 종합적인 컨설팅과
-                기술 구현 서비스를 제공합니다.
+                기업의 AI 전환을 위한 전략 수립부터 실행까지 종합적인 컨설팅 제공
               </p>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-brand-500 rounded-full mr-2"></span>
-                  디지털 전략 컨설팅
+                  AX 전략 컨설팅
                 </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-brand-500 rounded-full mr-2"></span>
@@ -91,8 +85,7 @@ const Services: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold mb-3">고객 경험 개선</h3>
               <p className="text-gray-600 mb-4">
-                사용자 중심의 UI/UX 디자인과 개발을 통해 고객 경험을 향상시키고,
-                비즈니스 성과를 높이는 솔루션을 제공합니다.
+                사용자 중심의 개발을 통해 고객 경험을 향상 시킵니다.
               </p>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-center">
@@ -130,10 +123,6 @@ const Services: React.FC = () => {
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-brand-500 rounded-full mr-2"></span>
                   하이브리드 클라우드 구축
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-brand-500 rounded-full mr-2"></span>
-                  클라우드 보안 최적화
                 </li>
               </ul>
             </div>

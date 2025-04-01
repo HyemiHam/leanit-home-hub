@@ -12,8 +12,7 @@ const Hero: React.FC = () => {
               AI/IT 솔루션 전문기업
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              고객 맞춤형 <span className="text-gradient">AI/IT 솔루션</span>으로<br />
-              비즈니스의 혁신을 이끕니다
+              고객 맞춤형 <br /><span className="text-gradient">AI/IT 솔루션</span>
             </h1>
             <p className="text-lg text-gray-600 mb-8 max-w-lg">
               leanIT는 최신 기술과 혁신적인 접근 방식으로 고객의 비즈니스에 맞는 
@@ -27,12 +26,6 @@ const Hero: React.FC = () => {
                 <span>서비스 알아보기</span>
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <a
-                href="/education"
-                className="px-6 py-3 border border-brand-500 text-brand-500 rounded-lg hover:bg-brand-50 transition-colors"
-              >
-                교육 프로그램
-              </a>
             </div>
           </div>
           <div className="md:w-1/2 mt-12 md:mt-0 reveal reveal-delay-2">
@@ -44,12 +37,6 @@ const Hero: React.FC = () => {
                   alt="AI 기술 이미지"
                   className="w-full h-auto rounded-xl"
                 />
-              </div>
-              <div className="absolute -bottom-4 -right-4 p-4 bg-white rounded-lg shadow-lg animate-float">
-                <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 bg-green-500 rounded-full"></div>
-                  <span className="text-sm font-medium">AI 기술 기반</span>
-                </div>
               </div>
             </div>
           </div>

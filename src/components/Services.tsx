@@ -8,37 +8,37 @@ const Services: React.FC = () => {
       icon: <Brain className="h-10 w-10 text-brand-500" />,
       title: "AI 솔루션",
       description:
-        "빅데이터 분석, 머신러닝, 딥러닝 등 최신 AI 기술을 활용한 맞춤형 솔루션을 제공합니다.",
+        "최신 AI 기술을 활용한 맞춤형 솔루션을 제공합니다.",
     },
     {
       icon: <Code className="h-10 w-10 text-brand-500" />,
       title: "IT 시스템 개발",
       description:
-        "웹/앱 개발부터 대규모 기업 시스템까지 다양한 IT 솔루션을 개발합니다.",
+        "다양한 IT 솔루션을 개발합니다.",
     },
     {
       icon: <Database className="h-10 w-10 text-brand-500" />,
       title: "클라우드 서비스",
       description:
-        "AWS, Azure, GCP 등 다양한 클라우드 플랫폼을 활용한 클라우드 솔루션을 제공합니다.",
+        "다양한 클라우드 플랫폼을 활용한 솔루션을 제공합니다.",
     },
     {
       icon: <School className="h-10 w-10 text-brand-500" />,
       title: "AI/IT 교육",
       description:
-        "기업과 개인을 위한 맞춤형 AI 및 IT 교육 프로그램을 운영합니다.",
+        "기업과 개인을 위한 맞춤형 AI 및 IT 교육 프로그램",
     },
     {
       icon: <BarChart className="h-10 w-10 text-brand-500" />,
       title: "데이터 분석",
       description:
-        "고객의 데이터를 분석하여 비즈니스 인사이트와 의사결정에 도움이 되는 솔루션을 제공합니다.",
+        "비즈니스 인사이트에 도움이 되는 솔루션을 제공합니다.",
     },
     {
       icon: <PenTool className="h-10 w-10 text-brand-500" />,
       title: "컨설팅",
       description:
-        "디지털 트랜스포메이션과 AI 도입을 위한 전문적인 컨설팅 서비스를 제공합니다.",
+        "AI 도입을 위한 전문적인 컨설팅 서비스를 제공합니다.",
     },
   ];
 

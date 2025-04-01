@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
+import cors from "cors";
 
 const ContactButton: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,20 +27,44 @@ const ContactButton: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    toast({
-      title: "문의가 접수되었습니다",
-      description: "빠른 시일 내에 연락드리겠습니다.",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: ""
-    });
-    setIsOpen(false);
+    
+    try {
+      const response = await fetch('http://localhost:5000/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "문의가 접수되었습니다",
+          description: "빠른 시일 내에 연락드리겠습니다.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: ""
+        });
+        setIsOpen(false);
+      } else {
+        toast({
+          title: "오류 발생",
+          description: "이메일 전송에 실패했습니다. 다시 시도해주세요.",
+        });
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "오류 발생",
+        description: "이메일 전송에 실패했습니다. 다시 시도해주세요.",
+      });
+    }
   };
 
   return (

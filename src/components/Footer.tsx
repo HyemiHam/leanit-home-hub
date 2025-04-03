@@ -1,6 +1,7 @@
 
 import React from "react";
 import { MapPin, Phone, Mail, Link as LinkIcon } from "lucide-react";
+import logo from '@/assets/leanit-logo.gif';
 
 const Footer: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <img
-              src="/src/assets/leanit-logo.gif"
+              src={logo}
               alt="leanIT 로고"
               className="h-12 mb-4 brightness-0 invert"
             />

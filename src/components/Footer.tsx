@@ -1,6 +1,6 @@
-
 import React from "react";
 import { MapPin, Phone, Mail, Link as LinkIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from '@/assets/leanit-logo.gif';
 
 const Footer: React.FC = () => {
@@ -27,13 +27,13 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold mb-4">바로가기</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="text-gray-400 hover:text-brand-300 transition-colors">홈</a>
+                <Link to="/" className="text-gray-400 hover:text-brand-300 transition-colors">홈</Link>
               </li>
               <li>
-                <a href="/services" className="text-gray-400 hover:text-brand-300 transition-colors">서비스</a>
+                <Link to="/services" className="text-gray-400 hover:text-brand-300 transition-colors">서비스</Link>
               </li>
               <li>
-                <a href="/about" className="text-gray-400 hover:text-brand-300 transition-colors">회사소개</a>
+                <Link to="/about" className="text-gray-400 hover:text-brand-300 transition-colors">회사소개</Link>
               </li>
             </ul>
           </div>

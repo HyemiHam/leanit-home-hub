@@ -70,6 +70,30 @@ app.post('/api/send-email', async (req, res) => {
   }
 });
 
+async function sendChat(msg) {
+  try {
+    const result = `{$msg}에 대한 AI응답 리턴`;
+    return result;
+  } catch (error) {
+    console.log('Error sendChat:', error);
+    throw new Error('AI응답 전송에 실패했습니다.');
+  }
+}
+
+//  카카오 챗봇 테스트용 API
+app.post('/api/chat-test', async (req, res) => {
+  const msg = req.body.msg;
+
+  try {
+    let rtnMsg = await sendChat(msg);
+    res.status(200).send({
+      rtnMsg: rtnMsg,
+    });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

@@ -82,7 +82,7 @@ async function sendChat(msg) {
 
 //  카카오 챗봇 테스트용 API
 app.post('/api/chat-test', async (req, res) => {
-  const msg = req.body.msg;
+  const { msg } = req.body;
 
   try {
     let rtnMsg = await sendChat(msg);

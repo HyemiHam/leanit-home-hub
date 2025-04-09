@@ -72,7 +72,7 @@ app.post('/api/send-email', async (req, res) => {
 
 async function sendChat(msg) {
   try {
-    const result = `{$msg}에 대한 AI응답 리턴`;
+    const result = `${msg}에 대한 AI응답 리턴`;
     return result;
   } catch (error) {
     console.log('Error sendChat:', error);

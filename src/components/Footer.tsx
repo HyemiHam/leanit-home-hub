@@ -79,11 +79,28 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} leanIT. All rights reserved.
-          </p>
-          <div className="mt-4 md:mt-0">
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-6">
+            <p className="text-gray-500 text-sm">
+              &copy; {new Date().getFullYear()} leanIT. All rights reserved.
+            </p>
+            <div className="mt-4 md:mt-0 flex gap-4 text-sm flex-wrap justify-center md:justify-end">
+              <Link to="/privacy" className="text-gray-400 hover:text-brand-300 transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/terms" className="text-gray-400 hover:text-brand-300 transition-colors">
+                Terms of Service
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/privacy?lang=ko" className="text-gray-400 hover:text-brand-300 transition-colors">
+                개인정보처리
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/terms?lang=ko" className="text-gray-400 hover:text-brand-300 transition-colors">
+                이용약관
+              </Link>
+            </div>
           </div>
         </div>
       </div>

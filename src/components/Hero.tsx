@@ -9,14 +9,14 @@ const Hero: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 reveal">
             <span className="inline-block px-3 py-1 bg-brand-100 text-brand-800 rounded-full text-sm font-medium mb-4">
-              AI/IT 솔루션 전문기업
+              린아이티(leanIT) — AI 교육·컨설팅 전문
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              고객 맞춤형 <br /><span className="text-gradient">AI/IT 솔루션</span>
+              린아이티, 고객 맞춤형 <br /><span className="text-gradient">AI/IT 솔루션</span>
             </h1>
             <p className="text-lg text-gray-600 mb-8 max-w-lg">
-              leanIT는 최신 기술과 혁신적인 접근 방식으로 고객의 비즈니스에 맞는 
-              맞춤형 솔루션을 제공합니다.
+              린아이티(leanIT)는 AI 교육, AX 컨설팅, 업무 자동화로 고객의 비즈니스에 맞는 
+              맞춤형 AI/IT 솔루션을 제공합니다.
             </p>
             <div className="flex flex-wrap gap-4">
               <a

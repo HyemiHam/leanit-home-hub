@@ -64,6 +64,12 @@ const Navbar: React.FC = () => {
           >
             회사소개
           </Link>
+          <a
+            href="https://leanit.kr/lab/blog/"
+            className="text-gray-800 hover:text-brand-500 font-medium transition-colors"
+          >
+            블로그
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -115,6 +121,13 @@ const Navbar: React.FC = () => {
           >
             회사소개
           </Link>
+          <a
+            href="https://leanit.kr/lab/blog/"
+            className="text-xl text-gray-800 hover:text-brand-500 font-medium"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            블로그
+          </a>
         </nav>
       </div>
     </header>

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -10,22 +9,11 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   return (
     <header
@@ -37,35 +25,22 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <img
-            src={logo} 
-            alt="leanIT 로고"
-            className="h-12 md:h-14"
-          />
+          <img src={logo} alt="leanIT 로고" className="h-12 md:h-14" />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link
-            to="/"
-            className="text-gray-800 hover:text-brand-500 font-medium transition-colors"
-          >
+          <Link to="/" className="text-gray-800 hover:text-brand-500 font-medium transition-colors">
             홈
           </Link>
-          <Link
-            to="/services"
-            className="text-gray-800 hover:text-brand-500 font-medium transition-colors"
-          >
+          <Link to="/services" className="text-gray-800 hover:text-brand-500 font-medium transition-colors">
             서비스
           </Link>
-          <Link
-            to="/about"
-            className="text-gray-800 hover:text-brand-500 font-medium transition-colors"
-          >
+          <Link to="/about" className="text-gray-800 hover:text-brand-500 font-medium transition-colors">
             회사소개
           </Link>
           <a
-            href="https://leanit.kr/lab/blog/"
+            href="https://leanit.kr/pub/insight-library.html"
             className="text-gray-800 hover:text-brand-500 font-medium transition-colors"
           >
             블로그
@@ -75,13 +50,9 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-gray-800 focus:outline-none"
-          onClick={toggleMobileMenu}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
+          {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
@@ -108,13 +79,6 @@ const Navbar: React.FC = () => {
             서비스
           </Link>
           <Link
-            to="/education"
-            className="text-xl text-gray-800 hover:text-brand-500 font-medium"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            교육
-          </Link>
-          <Link
             to="/about"
             className="text-xl text-gray-800 hover:text-brand-500 font-medium"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -122,7 +86,7 @@ const Navbar: React.FC = () => {
             회사소개
           </Link>
           <a
-            href="https://leanit.kr/lab/blog/"
+            href="https://leanit.kr/pub/insight-library.html"
             className="text-xl text-gray-800 hover:text-brand-500 font-medium"
             onClick={() => setIsMobileMenuOpen(false)}
           >

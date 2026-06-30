@@ -1,59 +1,55 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, Calendar } from "lucide-react";
 
-const posts = [
-  {
-    date: "2026-06-29",
-    category: "뉴스",
-    categoryClass: "bg-blue-100 text-blue-700",
-    title: "후지쓰 × OpenAI·Anthropic 동시 협업 발표",
-    desc: "일본 최대 SI기업이 세계 최고 AI 2개사를 동시 파트너로 — 일본 기업 AI 전환의 분기점",
-    href: "https://leanit.kr/pub/news-dive-001.html",
-  },
-  {
-    date: "2026-06-29",
-    category: "리서치",
-    categoryClass: "bg-purple-100 text-purple-700",
-    title: "일본 AI 지형도 2026",
-    desc: "일본 기업 AI 도입 현황과 주요 플레이어 분석. 중소기업 실질 도입률 12%의 의미.",
-    href: "https://leanit.kr/pub/japan-ai-landscape.html",
-  },
-  {
-    date: "2026-06-22",
-    category: "인사이트",
-    categoryClass: "bg-brand-100 text-brand-700",
-    title: "하네스 엔지니어링 — 에이전트들끼리 어떻게 일하게 할까?",
-    desc: "에이전트 품질은 모델이 아니라 '하네스(권한·도구·검증·관측)'가 결정한다.",
-    href: "https://leanit.kr/lab/insight-harness-engineering.html",
-  },
-  {
-    date: "2026-06-20",
-    category: "인사이트",
-    categoryClass: "bg-brand-100 text-brand-700",
-    title: "AI에게 매번 같은 설명을 다시 하지 않으려면 — LLM Wiki",
-    desc: "RAG와 LLM Wiki의 차이를 통해, AI 지식 관리를 '검색'에서 '운영'으로 바꾸는 관점.",
-    href: "https://leanit.kr/lab/insight-llm-wiki.html",
-  },
-  {
-    date: "2026-06-16",
-    category: "인사이트",
-    categoryClass: "bg-brand-100 text-brand-700",
-    title: "진짜는 에이전트가 아니라 '스킬'이었다",
-    desc: "AI 도입을 에이전트 자동화가 아니라 반복 가능한 스킬 설계와 조직 지식화 문제로.",
-    href: "https://leanit.kr/lab/insight-skill-not-agent.html",
-  },
-  {
-    date: "2026-06-16",
-    category: "인사이트",
-    categoryClass: "bg-brand-100 text-brand-700",
-    title: "샌드위치 코딩과 프롬프트 엔지니어링",
-    desc: "정밀한 지시와 제약 조건 설계가 왜 어려운지 시각적으로 보여주는 사례.",
-    href: "https://leanit.kr/lab/insight-sandwich-coding.html",
-  },
-];
+type Post = {
+  date: string;
+  category: string;
+  categoryClass: string;
+  title: string;
+  desc: string;
+  href: string;
+};
+
+// 데이터 소스: /pub/blog-posts.json (정국이 blog-publish.mjs로 갱신).
+// 런타임에 읽으므로 새 글 추가 시 홈페이지 재배포 불필요 — blog-posts.json만 바뀌면 자동 반영.
+const TYPE_META: Record<string, { label: string; cls: string }> = {
+  news: { label: "뉴스", cls: "bg-blue-100 text-blue-700" },
+  video: { label: "인사이트", cls: "bg-brand-100 text-brand-700" },
+};
 
 const BlogCarousel: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    fetch("/pub/blog-posts.json", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((data: any[]) => {
+        const mapped: Post[] = (Array.isArray(data) ? data : [])
+          .slice()
+          .sort(
+            (a, b) =>
+              (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0) ||
+              String(b.date).localeCompare(String(a.date))
+          )
+          .map((p) => {
+            const meta =
+              TYPE_META[p.type] || { label: "인사이트", cls: "bg-brand-100 text-brand-700" };
+            return {
+              date: p.date,
+              category: meta.label,
+              categoryClass: meta.cls,
+              title: String(p.title || "").replace(/\n/g, " "),
+              desc: String(p.summary || "").replace(/\n/g, " "),
+              href: p.href,
+            };
+          });
+        setPosts(mapped);
+      })
+      .catch(() => {
+        /* blog-posts.json 로드 실패 시 캐러셀 비워둠 (헤더/전체보기 링크는 유지) */
+      });
+  }, []);
 
   const scroll = (dir: number) => {
     ref.current?.scrollBy({ left: dir * 340, behavior: "smooth" });

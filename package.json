@@ -11,7 +11,10 @@
     "preview": "vite preview",
     "start": "concurrently --kill-others -c \"blue,green\" \"npm run server\" \"npm run client\"",
     "server": "node server.js",
-    "client": "vite"
+    "client": "vite",
+    "admin:password": "node scripts/hash-admin-password.js",
+    "test:profile": "node --test tests/profile*.js",
+    "db:backup": "node scripts/backup-profile.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -89,5 +92,8 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
+  },
+  "engines": {
+    "node": ">=22.13.0"
   }
 }

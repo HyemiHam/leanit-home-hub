@@ -1,15 +1,19 @@
 import express from 'express';
 import nodemailer from 'nodemailer';
-import bodyParser from 'body-parser';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { google } from 'googleapis';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { createProfileRouter } from './server/profile-router.js';
 
 dotenv.config(); // .env 파일에서 환경 변수 로드
 
 const app = express();
+const profileRouter = createProfileRouter();
+app.use('/api/kimhyemi', profileRouter);
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -97,7 +101,28 @@ app.post('/api/chat-test', async (req, res) => {
   }
 });
 
+// Production serves the SPA and API from the same origin.
+if (process.env.NODE_ENV === 'production') {
+  const distPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'dist');
+  app.use('/api', (_req, res) => res.status(404).json({ error: 'API를 찾을 수 없습니다.' }));
+  app.use(express.static(distPath));
+  app.get('/{*path}', (_req, res) => {
+    res.set('Cache-Control', 'no-cache');
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+}
+
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+const httpServer = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+for (const signal of ['SIGINT', 'SIGTERM']) {
+  process.once(signal, () => {
+    httpServer.close(() => {
+      profileRouter.close();
+      process.exit(0);
+    });
+    setTimeout(() => process.exit(1), 10_000).unref();
+  });
+}

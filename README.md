@@ -70,7 +70,7 @@ We don't support custom domains (yet). If you want to deploy your project under 
 
 ## 로컬에서 웹사이트 실행하기
 
-Node.js **20 LTS 이상**과 npm이 필요합니다. 설치 후 터미널을 새로 열어 `node -v`와 `npm -v`가 표시되는지 확인하세요.
+Node.js **22.13 이상**과 npm이 필요합니다(SQLite 내장 API 사용, 운영 Docker는 Node 24). 설치 후 터미널을 새로 열어 `node -v`와 `npm -v`가 표시되는지 확인하세요.
 
 ### Windows
 
@@ -97,6 +97,22 @@ npm run dev
 두 환경 모두 실행이 완료되면 브라우저에서 [http://localhost:8080](http://localhost:8080)을 엽니다. 종료하려면 실행 중인 터미널에서 `Ctrl + C`를 누릅니다.
 
 김혜미 프로필 페이지는 [http://localhost:8080/kimhyemi](http://localhost:8080/kimhyemi)에서 확인할 수 있습니다.
+경력 조회와 관리자 기능에는 API 서버가 필요합니다. 아래 관리자 설정 후 `npm start`로 프런트엔드와 API를 함께 실행하세요.
+
+### 김혜미 프로필 관리자
+
+관리자 주소: [http://localhost:8080/kimhyemi/admin](http://localhost:8080/kimhyemi/admin)
+
+1. `.env.example`을 `.env`로 복사합니다.
+2. `npm run admin:password`를 실행해 비밀번호 해시를 생성합니다.
+3. `.env`의 `ADMIN_USERNAME`, `ADMIN_PASSWORD_HASH`를 설정합니다. 해시는 작은따옴표로 감싸 입력합니다(`ADMIN_PASSWORD_HASH='생성한 해시'`). 로컬 `APP_ORIGIN`은 `http://localhost:8080`입니다.
+4. `npm start` 실행 후 관리자 페이지에서 로그인합니다.
+
+강의경력·외부 활동·주요 프로젝트를 추가/수정/삭제하고 공개 여부와 노출 순서를 관리합니다. 작은 순서 값부터 표시되며 같은 값은 ID 순입니다. 영문이 비어 있으면 공개 페이지에서 한글을 표시합니다. 저장한 공개 데이터는 다음 조회나 새로고침에 반영됩니다.
+
+SQLite는 기본 `data/profile.sqlite`에 생성됩니다. 최초 실행 시 기존 경력 21건을 이관하며, 이후 재시작이나 전체 삭제 시 다시 넣지 않습니다. 관리자 환경 변수가 없으면 공개 조회만 가능하고 로그인은 비활성화됩니다. DB 파일과 `.env`는 Git에 포함하지 않습니다.
+
+운영 배포·백업·복구 방법은 [프로필 운영 안내](docs/kimhyemi-admin.md)를 참고하세요.
 
 ### 문의 메일 기능까지 실행하려면
 

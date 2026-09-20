@@ -14,6 +14,7 @@ import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 
 const KimhyemiPage = lazy(() => import("./features/kimhyemi/KimhyemiPage"));
+const KimhyemiAdminPage = lazy(() => import("./features/kimhyemi/AdminPage"));
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,14 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
+          <Route
+            path="/kimhyemi/admin"
+            element={
+              <Suspense fallback={<main className="min-h-screen bg-white" />}>
+                <KimhyemiAdminPage />
+              </Suspense>
+            }
+          />
           <Route
             path="/kimhyemi/*"
             element={

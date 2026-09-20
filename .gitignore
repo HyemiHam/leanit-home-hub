@@ -27,3 +27,8 @@ dist-ssr
 !.env.example
 *.mjs
 .claude/
+data/
+backups/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

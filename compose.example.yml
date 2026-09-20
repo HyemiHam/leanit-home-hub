@@ -1,0 +1,21 @@
+# Standalone example. Merge the service settings into the existing production
+# Compose file; keep its ports, networks, labels and other services as appropriate.
+services:
+  react-home:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DB_PATH: /app/data/profile.sqlite
+    ports:
+      - "127.0.0.1:5000:5000"
+    volumes:
+      - kimhyemi-data:/app/data
+
+volumes:
+  kimhyemi-data:

@@ -47,4 +47,4 @@ jobs:
               cd /home/leanit-admin/dc-react
               docker compose up -d --build react-home
               docker image prune -f
-            REMOTE
+          REMOTE

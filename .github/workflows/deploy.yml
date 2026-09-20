@@ -34,17 +34,15 @@ jobs:
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
           SERVER_USER: ${{ secrets.SERVER_USER }}
         run: |
-          ssh -i ~/.ssh/id_ed25519 \
+          {
+            printf '%s\n' 'set -Eeuo pipefail'
+            printf '%s\n' 'cd /home/leanit-admin/dc-react/leanit_home'
+            printf '%s\n' 'git fetch origin prod'
+            printf '%s\n' 'git switch prod'
+            printf '%s\n' 'git pull --ff-only origin prod'
+            printf '%s\n' 'cd /home/leanit-admin/dc-react'
+            printf '%s\n' 'docker compose up -d --build react-home'
+            printf '%s\n' 'docker image prune -f'
+          } | ssh -i ~/.ssh/id_ed25519 \
             -p "$SERVER_PORT" \
-            "$SERVER_USER@$SERVER_HOST" 'bash -se' <<'REMOTE'
-              set -Eeuo pipefail
-
-              cd /home/leanit-admin/dc-react/leanit_home
-              git fetch origin prod
-              git switch prod
-              git pull --ff-only origin prod
-
-              cd /home/leanit-admin/dc-react
-              docker compose up -d --build react-home
-              docker image prune -f
-          REMOTE
+            "$SERVER_USER@$SERVER_HOST" 'bash -se'

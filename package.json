@@ -52,6 +52,7 @@
     "dotenv": "^16.4.7",
     "embla-carousel-react": "^8.3.0",
     "express": "^5.1.0",
+    "framer-motion": "^12.43.0",
     "googleapis": "^148.0.0",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.462.0",

@@ -70,6 +70,7 @@ export default {
 			},
 			fontFamily: {
 				pretendard: ['Pretendard', 'sans-serif'],
+				headline: ['Anton', 'Black Han Sans', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+KR:wght@400;500;700;900&family=Black+Han+Sans&display=swap');
+
+.kimhyemi-page {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 4%;
+  --card: 0 0% 4%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 4%;
+  --primary: 0 0% 4%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 4%;
+  --muted: 0 0% 92%;
+  --muted-foreground: 0 0% 45%;
+  --accent: 0 74% 42%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 88%;
+  --input: 0 0% 88%;
+  --ring: 0 0% 4%;
+  --radius: 0px;
+  --font-headline: 'Anton', 'Black Han Sans', sans-serif;
+  --font-headline-kr: 'Black Han Sans', 'Noto Sans KR', sans-serif;
+  --font-body: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-body);
+}
+
+.kimhyemi-page h1,
+.kimhyemi-page h2,
+.kimhyemi-page h3,
+.kimhyemi-page .headline {
+  font-family: var(--font-headline);
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+.kimhyemi-page .nav-number {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid hsl(var(--foreground));
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.kimhyemi-page .section-headline {
+  font-family: var(--font-headline);
+  line-height: 0.9;
+}
+
+.kimhyemi-page .hero-headline {
+  font-family: var(--font-headline);
+  line-height: 0.85;
+}
+
+.kimhyemi-page .expertise-card {
+  display: flex;
+  min-height: 280px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+}
+
+.kimhyemi-page .social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  transition: color 150ms;
+}
+
+@media (min-width: 768px) {
+  .kimhyemi-page .expertise-card {
+    min-height: 320px;
+  }
+}

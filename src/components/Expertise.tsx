@@ -47,7 +47,6 @@ const Expertise: React.FC = () => {
                   <div className="mr-3 p-2 bg-brand-100 rounded-lg">{feature.icon}</div>
                   <div>
                     <h3 className="font-bold mb-1">{feature.title}</h3>
-                    <p className="text-sm text-gray-600">{feature.description}</p>
                   </div>
                 </div>
               ))}

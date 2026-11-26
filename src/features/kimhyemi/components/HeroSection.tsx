@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const HeroSection = () => {
   const { t } = useLanguage();
 
-  const textVariants = {
+  const textVariants: Variants = {
     hidden: { opacity: 0, y: 80, skewY: 3 },
     visible: (i: number) => ({
       opacity: 1,
@@ -18,7 +18,7 @@ const HeroSection = () => {
     }),
   };
 
-  const letterVariants = {
+  const letterVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: (i: number) => ({
       opacity: 1,
@@ -119,7 +119,7 @@ const HeroSection = () => {
             <motion.span
               className="inline-block w-[2px] h-[1.2em] bg-white/70 ml-1 align-middle"
               animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 1, repeat: Infinity, ease: "steps(1)" }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
             />
           </motion.p>
           <motion.p

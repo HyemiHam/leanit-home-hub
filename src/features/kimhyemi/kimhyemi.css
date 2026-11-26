@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+KR:wght@400;500;700;900&family=Black+Han+Sans&display=swap');
+@font-face {
+  font-family: 'Profile Pretendard';
+  src: url('/fonts/PretendardVariable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+}
 
 .kimhyemi-page {
   --background: 0 0% 100%;
@@ -21,9 +27,9 @@
   --input: 0 0% 88%;
   --ring: 0 0% 4%;
   --radius: 0px;
-  --font-headline: 'Anton', 'Black Han Sans', sans-serif;
-  --font-headline-kr: 'Black Han Sans', 'Noto Sans KR', sans-serif;
-  --font-body: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-headline: 'Profile Pretendard', 'Malgun Gothic', sans-serif;
+  --font-headline-kr: 'Profile Pretendard', 'Malgun Gothic', sans-serif;
+  --font-body: 'Profile Pretendard', 'Malgun Gothic', sans-serif;
   background: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: var(--font-body);
@@ -35,7 +41,11 @@
 .kimhyemi-page .headline {
   font-family: var(--font-headline);
   letter-spacing: -0.02em;
-  line-height: 0.9;
+  line-height: 1.1;
+}
+
+.kimhyemi-page .font-headline {
+  font-family: var(--font-headline);
 }
 
 .kimhyemi-page .nav-number {
@@ -52,12 +62,12 @@
 
 .kimhyemi-page .section-headline {
   font-family: var(--font-headline);
-  line-height: 0.9;
+  line-height: 1.1;
 }
 
 .kimhyemi-page .hero-headline {
   font-family: var(--font-headline);
-  line-height: 0.85;
+  line-height: 1.1;
 }
 
 .kimhyemi-page .expertise-card {

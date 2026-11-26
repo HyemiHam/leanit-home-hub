@@ -61,8 +61,8 @@ const AboutSection = () => {
             />
             <p className="text-lg leading-relaxed text-muted-foreground md:pl-6">
               {t(
-                "초등학생, 대학생, 직장인, 은퇴예정이신 분들까지 다양한 현장에서 AI교육과 컨설팅을 진행했습니다.",
-                "From elementary students to college students, working professionals, and retirees—I've conducted AI education and consulting across diverse settings."
+                "IT 시스템 개발·운영 경험과 AI 기술을 결합하여 다양한 사람과 기업의 AX와 업무 자동화를 지원합니다.",
+                "I combine experience in IT systems development and operations with AI to support people and businesses in AX and workflow automation."
               )}
             </p>
           </motion.div>
@@ -80,11 +80,24 @@ const AboutSection = () => {
             />
             <p className="text-lg leading-relaxed text-muted-foreground md:pl-6">
               {t(
-                "현장마다 목적이 다르고, 사람마다 이해의 속도가 다르다는 전제로, 기술을 단순한 기능이 아닌 사용 가능한 경험으로 만듭니다. 교육과 시스템 설계를 함께 고민합니다.",
-                "Understanding that every environment has different goals and every person learns at their own pace, I transform technology from mere functionality into usable experiences. I consider both education and system design together."
+                "Dify, n8n 등 노코드 AI 플랫폼을 활용한 AI 챗봇·워크플로우 구축 교육과 컨설팅을 진행합니다.",
+                "I teach and consult on building AI chatbots and workflows with no-code platforms such as Dify and n8n."
               )}
             </p>
           </motion.div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mt-12">
+          <div className="border-t border-border pt-5">
+            <h3 className="text-xl font-bold mb-3">{t("IT 기술", "IT Skills")}</h3>
+            <p className="text-muted-foreground leading-relaxed">Java · Spring · Oracle · PL/SQL · Oracle ERP</p>
+          </div>
+          <div className="border-t border-border pt-5">
+            <h3 className="text-xl font-bold mb-3">{t("AI 도구·활용", "AI Tools & Practice")}</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              {t("LLM · Dify · n8n · Google AI Studio · Google Apps Script · 바이브코딩 · AI 쇼츠 제작", "LLM · Dify · n8n · Google AI Studio · Google Apps Script · vibe coding · AI short-form video creation")}
+            </p>
+          </div>
         </div>
 
         {/* Stats section with counter animation */}
@@ -119,6 +132,25 @@ const AboutSection = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8 mt-16 pt-12 border-t border-border">
+          <div>
+            <h3 className="text-2xl font-bold mb-5">{t("학력", "Education")}</h3>
+            <ul className="space-y-3 text-muted-foreground">
+              <li><span className="text-foreground font-medium">2005.08</span> · {t("독학사 컴퓨터공학 학사", "B.S. in Computer Science, Bachelor's Degree Examination for Self-Education")}</li>
+              <li><span className="text-foreground font-medium">2005.02</span> · {t("인덕대학 인터넷TV방송 전문학사", "Associate Degree in Internet TV Broadcasting, Induk University")}</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-5">{t("자격·언어", "Certifications & Language")}</h3>
+            <ul className="space-y-3 text-muted-foreground">
+              <li>{t("정보처리기사", "Engineer Information Processing")}</li>
+              <li>SCJP (Sun Certified Java Programmer)</li>
+              <li>{t("사무자동화산업기사", "Industrial Engineer Office Automation")}</li>
+              <li>{t("일본어 JLPT 1급", "Japanese JLPT Level 1")}</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );

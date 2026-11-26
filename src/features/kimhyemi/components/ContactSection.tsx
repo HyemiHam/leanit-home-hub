@@ -9,10 +9,11 @@ interface SocialLink {
 }
 
 const socialLinks: SocialLink[] = [
-  { number: "001", label: "LinkedIn", href: "https://www.linkedin.com/in/leanit-hyemi" },
-  { number: "002", label: "Threads", href: "https://www.threads.com/@hemi1019?hl=ko" },
-  { number: "003", label: "Naver Blog", href: "https://blog.naver.com/hugyourheart" },
-  { number: "004", label: "leanIT", href: "https://leanit.kr" },
+  { number: "001", label: "hyemi222@hotmail.com", href: "mailto:hyemi222@hotmail.com" },
+  { number: "002", label: "LinkedIn", href: "https://www.linkedin.com/in/leanit-hyemi" },
+  { number: "003", label: "Threads", href: "https://www.threads.com/@hemi1019?hl=ko" },
+  { number: "004", label: "Naver Blog", href: "https://blog.naver.com/hugyourheart" },
+  { number: "005", label: "leanIT", href: "https://leanit.kr" },
 ];
 
 const ContactSection = () => {
@@ -54,8 +55,8 @@ const ContactSection = () => {
             <motion.a
               key={link.number}
               href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={link.href.startsWith("https://") ? "_blank" : undefined}
+              rel={link.href.startsWith("https://") ? "noopener noreferrer" : undefined}
               initial={{ opacity: 0, x: 20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
